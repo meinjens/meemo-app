@@ -1,0 +1,9 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<CampaignListPage /> should render its heading 1`] = `
+<div>
+  <p>
+    Test
+  </p>
+</div>
+`;
