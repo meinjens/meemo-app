@@ -14,8 +14,6 @@ import {
     MiddleLeft,
     MiddleLeftButtons,
     MiddleRight,
-    Apod,
-    ApodButton,
 } from "@Styled/Home";
 import { IStore } from "@Redux/IStore";
 import { HomeActions } from "@Actions";

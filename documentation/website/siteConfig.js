@@ -20,26 +20,23 @@ const users = [
 	},
 ];
 
-const organizationName = "pankod";
-const projectName = "next-boilerplate";
-const packageName = "next-boilerplate";
+const organizationName = "meemo";
+const projectName = "meemo";
+const packageName = "meemo-app";
 const url = [
 
 	{
 		title: "Twitter",
-		url: "https://twitter.com/PankodDev"
+		url: "https://twitter.com/meinjens"
 	}
 ]
 
 const siteConfig = {
-	title: 'Pankod', // Title for your website.
+	title: 'Meemo', // Title for your website.
 	headerTitle:'next-boilerplate',
-	tagline: 'Performance oriented Next.js application boilerplate with Redux, Typescript, Express.js, Sass and Project CLI.',
-	url: 'https://pankod.github.io', // Your website URL
-	baseUrl: '/next-boilerplate/', // Base URL for your project */
-	// For github.io type URLs, you would set the url and baseUrl like:
-	//   url: 'https://facebook.github.io',
-	//   baseUrl: '/test-site/',
+	tagline: '',
+	url: 'https://meemo.diemeineckes.de', // Your website URL
+	baseUrl: '/', // Base URL for your project */
 
 	socialMediaUrl: url,
 	packageName: packageName,
@@ -55,7 +52,7 @@ const siteConfig = {
 	headerLinks: [
 		{ doc: 'getting-started', label: 'Docs' },
 /* 		{ page: 'users', label: 'Help' }, */
-		{ href: 'https://github.com/pankod/' + packageName, label: 'Github' },
+		{ href: 'https://github.com/meinjens/' + packageName, label: 'Github' },
 		{ search: true },
 		{ languages: true }
 	],

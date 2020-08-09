@@ -17,7 +17,7 @@ setConfig({
 
 nock("http://localhost:3000")
     .get("/api/planetary/apod")
-    .query({ api_key: "NNKOjkoul8n1CH18TWA9gwngW1s1SmjESPjNoUFo", hd: true })
+    .query({ api_key: "iGOBxtFnlUMaaq8redQ2OAURsSZ93rifAf2DhxQf", hd: true })
     .reply(200, {
         copyright: "Pankod",
         date: "2019-05-23",
@@ -31,7 +31,7 @@ nock("http://localhost:3000")
 
 nock("http://localhost:3000")
     .get("/api/planetary/apod")
-    .query({ api_key: "NNKOjkoul8n1CH18TWA9gwngW1s1SmjESPjNoUFo", hd: false })
+    .query({ api_key: "iGOBxtFnlUMaaq8redQ2OAURsSZ93rifAf2DhxQf", hd: false })
     .reply(500);
 
 nock("http://localhost:3000")
