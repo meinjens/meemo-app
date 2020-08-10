@@ -4,25 +4,26 @@ sudo: required
 addons:
   chrome: stable
 services:
-  - xvfb
+- xvfb
 node_js:
-  - 'node'
-  - 'lts/*'
+- node
+- lts/*
 cache:
   directories:
-    - node_modules
-
+  - node_modules
+env:
+  global:
+  - secure: fu5LKEPQBMv2tNDWAwHb3tf6SdT+Jr4pW4DpNxfuVvJp+7EwY2/izgs3UzJwKGyTsU8JWYmhQTVRCrlENtnklfmHNIAeHmeI+zw5n9Pj5WTe3wJpGbss/E8hiKs8T8Z+PfEfV4RxkztblofmuPUnX39VSJLiZQQYGemn/PPd3RS9ruAO/b7mHqK6e3bTsWoZSdONKg4gFZY2I1n0n7d7tYjj1q0Y3Ng4HfP0UCbfRLSA2AWySuLVh6zKI1gZHHuFb66PJwWaO/VqkSp+DkbQud72Wd4b1B7lwHldaViuWMWK+M5GnEDfXjksNniSAK39ALMzITDpmhHopbGesA0SpmdD8lmnThINxJbV9Y6FbCj/OCi2LfWaLXWfhOob3Rbwwh6n+gP1silIgsXlLnufkFoSjV0ftHl7Ykdwbe1uGoXbTUq5GS8Nvx1v8by01KGrtXG/eMpCyN3SVJShQIY1HRb2PY9vv3u9XGlGl+x/U8kurH3GHpiIfcpRSg5P8VUYuEVXRUAqCDaH26OacnSVutsN/oEKW/ftU2aQvVd5IZ40Uyt3KeKQipjUceAg9byLSdBaGcP7B+BcUtvGywssNHRYYH84oA/Bw9YzAebengBS6PdLSvISGJbJNcWmdayhu03b97u0LoX5bzf/9wdMOHfLBxkXL5HU2ToYa+GnXlQ=
+  - secure: P6rAYcs3yKwIW9SdW7QiUZjeCQfTJxwIqLNAupgxV5h+1+hPXx9+tJ6THAKv20VbpQ4cm9CqS6ZrIsiwNz9poiUP9VZqbso+S0Brnt7Ktf9SL1mZIVzPnDj7BlPq0xJVAzZpJKMyeShAJXo95Gs6JR6EabiAQf8QYV1tY7gEb4UV+UGLPmu4CQWyQB+Moh569S9QzQKjEgRxpFTEZ4A1wdsnq8bO2yvg/DGRWlBAEX1uKqEKcap0ksBMxY+t8fX1yrvttFyZLLSvwRPJPHfsYNgW9XLuBef8f1D5fCJ4llTzMsxc6fWEcUyQZX0PnP/wPizyAeWqVI76T/TopWVmtQftHWnz2eHE3l1qRLx/pJmVpiXagRgrRZL9OGq3bkfWpRUEWu+ZC+Ph9mq7eLu352eDN2WwNAZPBAZltXLSL5urDa0sqIXC4tlZ/XJhc4tE3zX54lTkCYM9db41heJJEFoeawK9AqFZqTtdRCC5x/uR0OXvdC4f0zFbqFcmrjy6bDpHheCbb+u2thoqJC83j9jM3ROwwilQn29x2vTwGNMHehCJ8ySF3cYtpDkGxerC7i63ByLRsthEIVluVgle0Icym/COhLiSBmUDoJF97JLgT6amKyJl2IlLrCkHcmfLnjRJ0GBiGUTKoo90b4ngJBrAdhRMrDlHifkH7d9EW9c=
 before_script:
-  - export DISPLAY=:99.0
-
+- export DISPLAY=:99.0
 script:
-  - npm test -- --maxWorkers=4
-  - npm run build
-
+- npm test -- --maxWorkers=4
+- npm run build
 after_success:
-  - docker login -u $DOCKER_USER -p $DOCKER_PASS
-  - export TAG=`if [ "$TRAVIS_BRANCH" == "master" ]; then echo "latest"; else echo $TRAVIS_BRANCH; fi`
-  - export IMAGE_NAME="meinjens/meemo-app"
-  - docker build -t $IMAGE_NAME:$TRAVIS_COMMIT .
-  - docker tag $IMAGE_NAME:$TRAVIS_COMMIT $IMAGE_NAME:$TAG
-  - docker push $IMAGE_NAME
+- docker login -u $DOCKER_USER -p $DOCKER_PASS
+- export TAG=`if [ "$TRAVIS_BRANCH" == "master" ]; then echo "latest"; else echo $TRAVIS_BRANCH; fi`
+- export IMAGE_NAME="meinjens/meemo-app"
+- docker build -t $IMAGE_NAME:$TRAVIS_COMMIT .
+- docker tag $IMAGE_NAME:$TRAVIS_COMMIT $IMAGE_NAME:$TAG
+- docker push $IMAGE_NAME
